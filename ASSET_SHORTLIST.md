@@ -4,7 +4,7 @@ Last reviewed: May 20, 2026
 
 ## Objective
 
-Pick free ambient assets that fit the mixer app at [index.html](/Users/arvind/Downloads/personal-repos/music/index.html):
+Pick free ambient assets that fit the mixer app in [index.html](index.html):
 
 - calm and focus-friendly
 - suitable for layering

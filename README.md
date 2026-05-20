@@ -18,13 +18,13 @@ A lightweight browser-based ambient mixer built with the Web Audio API.
 
 ## Project docs
 
-- [CHANGELOG.md](/Users/arvind/Downloads/personal-repos/music/CHANGELOG.md:1)
+- [CHANGELOG.md](CHANGELOG.md)
   - high-level project history
-- [ONBOARDING.md](/Users/arvind/Downloads/personal-repos/music/ONBOARDING.md:1)
+- [ONBOARDING.md](ONBOARDING.md)
   - where to start and how to work safely in this repo
-- [LESSONS_LEARNED.md](/Users/arvind/Downloads/personal-repos/music/LESSONS_LEARNED.md:1)
+- [LESSONS_LEARNED.md](LESSONS_LEARNED.md)
   - what worked, what slowed us down, and how to move faster next time
-- [METRICS_AND_LOGGING.md](/Users/arvind/Downloads/personal-repos/music/METRICS_AND_LOGGING.md:1)
+- [METRICS_AND_LOGGING.md](METRICS_AND_LOGGING.md)
   - current observability status and recommended next metrics
 
 ## Audio organization
@@ -52,7 +52,7 @@ Use this workflow if someone needs to recreate the asset pipeline from the begin
 
 4. Save the shortlisted source information before downloading.
    - Record title, creator, source page, reason for selection, and any loop/mix risk.
-   - See [ASSET_SHORTLIST.md](/Users/arvind/Downloads/personal-repos/music/ASSET_SHORTLIST.md:1).
+   - See [ASSET_SHORTLIST.md](ASSET_SHORTLIST.md).
 
 5. Download the approved source files.
    - Rename them to simple stable filenames by category, for example `rain-pixabay.mp3`.
@@ -68,7 +68,7 @@ Use this workflow if someone needs to recreate the asset pipeline from the begin
    - Loop behavior is handled in the playback layer by computing per-track loop regions after decoding.
 
 8. Wire the app to the chosen runtime assets.
-   - Audio file paths are defined in [app.js](/Users/arvind/Downloads/personal-repos/music/app.js:1).
+   - Audio file paths are defined in [app.js](app.js).
    - If you swap source files later, update those paths there and re-test loop quality.
 
 9. Credit the original creators in project docs.

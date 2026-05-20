@@ -105,7 +105,7 @@ node --check app.js
 - If SSH access fails with `Permission denied (publickey)`, switch the remote to HTTPS:
 
 ```bash
-git remote set-url origin https://github.com/narrreddy/bg-music.git
+git remote set-url origin https://github.com/<your-username>/<your-repo>.git
 ```
 
 - If a large first push disconnects during upload, split the publish into smaller commits:

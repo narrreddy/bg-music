@@ -2,7 +2,9 @@
 
 ## 2026-05-20
 
-### Initial commit
+### 18:59:10 -0400
+
+Commit: `daf485c` `Optimize mobile delivery and add PWA support`
 
 Added:
 - Created the static ambient mixer app shell in `index.html`
@@ -33,7 +35,37 @@ Changed:
 Removed:
 - Removed the unused original source-audio folder from the repo
 
-### Add optimized ambient audio assets
+### 19:09:29 -0400
+
+Commit: `326e56c` `Merge remote main before publishing`
+
+Added:
+- Added `LICENSE` from the remote branch into local history during the merge
+
+Changed:
+- Merged local work with `origin/main` before the first publish attempt
+
+### 19:16:18 -0400
+
+Git action: reset to `origin/main`
+
+Changed:
+- Removed unpublished local commits from branch history with `git reset --mixed origin/main`
+- Preserved all in-progress file changes in the working tree for a clean recommit
+
+### 19:16:58 -0400
+
+Commit: `e45f69d` `Optimize mobile delivery and add PWA support`
+
+Added:
+- Recommitted app code, docs, workflow, manifest, service worker, and icons without the audio payload
+
+Changed:
+- Split the original publish into a smaller first commit to reduce push risk
+
+### 19:17:11 -0400
+
+Commit: `b17f372` `Add optimized ambient audio assets`
 
 Added:
 - Added optimized runtime audio files in `assets/audio/pixabay-optimized/`
@@ -43,7 +75,9 @@ Changed:
 - Switched the deployed runtime audio set to the optimized `.m4a` files
 - Compressed `brown noise` and `jungle` more aggressively for better mobile delivery
 
-### Document Git publishing issues and recovery flow
+### 19:19:21 -0400
+
+Commit: `5c299cb` `Document Git publishing issues and recovery flow`
 
 Added:
 - Added publish troubleshooting guidance to `ONBOARDING.md`
@@ -55,3 +89,26 @@ Changed:
 - Clarified in the docs that the failed operation was remote publishing, not local commit creation
 - Documented the switch from SSH to HTTPS for the GitHub remote
 - Documented the successful split-push strategy of app/docs first and audio assets second
+
+### 19:20:21 -0400
+
+Commit: `796ac93` `Refine changelog into edit-by-edit entries`
+
+Changed:
+- Reworked the changelog from broad grouped notes into explicit added, changed, and removed entries
+- Organized the project history into clearer milestone-level records
+
+## Facts confirmed from Git metadata
+
+- `daf485c` was created at `2026-05-20 18:59:10 -0400`
+- `326e56c` was created at `2026-05-20 19:09:29 -0400`
+- the mixed reset to `origin/main` happened at `2026-05-20 19:16:18 -0400`
+- `e45f69d` was created at `2026-05-20 19:16:58 -0400`
+- `b17f372` was created at `2026-05-20 19:17:11 -0400`
+- `5c299cb` was created at `2026-05-20 19:19:21 -0400`
+- `796ac93` was created at `2026-05-20 19:20:21 -0400`
+
+## Strong inferences from the session
+
+- The first local app commit likely represented the main "build ambient sound mixer" implementation pass.
+- The failure sequence happened after local commits existed, during remote publish and recovery work rather than during feature implementation itself.

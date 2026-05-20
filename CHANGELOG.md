@@ -33,3 +33,12 @@
 - Added sourcing shortlist and asset rationale
 - Added replication and deployment notes
 - Added onboarding, lessons learned, and metrics/logging guidance
+- Documented Git publishing issues, root causes, and the successful recovery flow
+
+### Fixed
+
+- Clarified that the initial failure was not a broken local commit, but a remote publish problem
+- Switched the Git remote from SSH to HTTPS after GitHub SSH auth failed with `Permission denied (publickey)`
+- Avoided a large first-push transport failure by splitting the publish into:
+  - a smaller app/docs commit
+  - a second audio-assets commit

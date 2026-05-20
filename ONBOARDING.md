@@ -93,3 +93,28 @@ node --check app.js
 
 - GitHub Pages deploys tracked repo files only
 - optimized `.m4a` runtime assets are the deployed audio set
+- `main` currently tracks `origin/main` over HTTPS
+
+## Git publish troubleshooting
+
+- If a publish appears to fail, separate local history from remote state first:
+  - `git log --oneline -n 5`
+  - `git reflog -n 10`
+  - `git ls-remote --heads origin`
+- If the local commit exists but the remote branch did not move, the problem is push or auth, not commit creation.
+- If SSH access fails with `Permission denied (publickey)`, switch the remote to HTTPS:
+
+```bash
+git remote set-url origin https://github.com/narrreddy/bg-music.git
+```
+
+- If a large first push disconnects during upload, split the publish into smaller commits:
+  - push app code, docs, workflow, manifest, service worker, and icons first
+  - push audio assets in a second commit
+- If you need to remove unpublished local commits but keep the worktree intact:
+
+```bash
+git reset --mixed origin/main
+```
+
+- That reset removes local-only commits while preserving file changes unstaged for a clean recommit.

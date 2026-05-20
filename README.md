@@ -139,6 +139,17 @@ Recommended publish flow:
 
 1. Initialize git if needed.
 2. Create a new GitHub repository.
-3. Push the project to the `main` branch.
-4. In GitHub, enable Pages with `GitHub Actions` as the source.
-5. The workflow in `.github/workflows/deploy-pages.yml` will publish the site automatically on push.
+3. Prefer an HTTPS remote if SSH keys are not already configured on the machine.
+4. Push the project to the `main` branch.
+5. If the first full publish fails during upload, split the push into:
+   - a smaller app/docs commit
+   - a second commit for `assets/audio/pixabay-optimized/`
+6. If you accidentally create local-only commits before the first successful publish and want one clean recommit, run:
+
+```bash
+git reset --mixed origin/main
+```
+
+7. Recommit the app/docs changes first, then the audio assets.
+8. In GitHub, enable Pages with `GitHub Actions` as the source.
+9. The workflow in `.github/workflows/deploy-pages.yml` will publish the site automatically on push.

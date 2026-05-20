@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta name="theme-color" content="#0e1210" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Stillwave" />
+    <title>Stillwave Ambient Mixer</title>
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="mixer-shell">
+        <div class="topbar">
+          <div class="brand">
+            <p class="eyebrow">Ambient Focus</p>
+            <h1>Stillwave</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              id="theme-toggle"
+              class="icon-action"
+              type="button"
+              aria-label="Toggle theme"
+              title="Toggle theme"
+            >
+              ◐
+            </button>
+          </div>
+        </div>
+
+        <div class="master-strip">
+          <label class="master-control" for="master-volume">
+            <span>Master</span>
+            <input
+              id="master-volume"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="80"
+            />
+            <strong id="master-volume-value">80%</strong>
+          </label>
+        </div>
+
+        <div class="recipe-strip">
+          <div class="recipe-strip-header">
+            <div class="recipe-strip-copy">
+              <p class="eyebrow">Quick Scenes</p>
+              <p class="recipe-strip-note">Start with a scene, then fine-tune it in Scene Studio.</p>
+            </div>
+            <div class="recipe-strip-actions">
+              <button
+                id="preset-quick-save"
+                class="manage-button"
+                type="button"
+                aria-label="Create a new preset from the current playing mix"
+              >
+                Save Current
+              </button>
+              <button
+                id="preset-editor-toggle"
+                class="manage-button"
+                type="button"
+                aria-label="Open scene studio"
+              >
+                Scene Studio
+              </button>
+            </div>
+          </div>
+          <div id="recipe-list" class="recipe-list"></div>
+        </div>
+
+        <section id="preset-editor" class="preset-editor is-hidden" aria-label="Preset editor">
+          <div class="preset-editor-header">
+            <div>
+              <p class="eyebrow">Scene Studio</p>
+              <h2>Shape your presets</h2>
+            </div>
+            <p class="preset-editor-note">
+              Edit the built-in scenes, capture your current blend, or save your own one-tap setup.
+            </p>
+          </div>
+
+          <div class="preset-editor-topbar">
+            <label class="preset-field">
+              <span>Scene</span>
+              <select id="preset-select"></select>
+            </label>
+            <label class="preset-field">
+              <span>Name</span>
+              <input id="preset-name" type="text" maxlength="32" placeholder="My Scene" />
+            </label>
+          </div>
+
+          <div class="preset-editor-actions">
+            <button id="preset-new" class="manage-button" type="button">New Scene</button>
+            <button id="preset-load-current" class="manage-button" type="button">Capture Current</button>
+            <button id="preset-reset" class="manage-button" type="button">Reset Scene</button>
+            <button id="preset-save" class="manage-button is-primary" type="button">Save Scene</button>
+            <button id="preset-delete" class="manage-button" type="button">Delete Scene</button>
+          </div>
+
+          <div id="preset-track-list" class="preset-track-list"></div>
+        </section>
+
+        <p id="status" class="status" aria-live="polite">
+          Ready to load local sound loops.
+        </p>
+
+        <section class="track-section">
+          <div id="track-list" class="track-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <button
+      id="floating-playback"
+      class="floating-playback"
+      type="button"
+      aria-label="Play all sounds"
+      title="Play all sounds"
+    >
+      <span class="floating-playback-glyph" aria-hidden="true">▶</span>
+    </button>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

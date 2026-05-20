@@ -2,43 +2,56 @@
 
 ## 2026-05-20
 
-### Added
+### Initial commit
 
-- Browser-based ambient mixer with a single shared Web Audio `AudioContext`
-- Bundled ambient tracks for `rain`, `waves`, `jungle`, `wind`, `stream`, `crickets`, `brown noise`, and `campfire`
-- Per-track play or pause, mute, and volume controls
-- Master volume control
-- Quick scenes for `Deep Focus`, `Ocean Calm`, and `Night`
-- Scene Studio for editing built-in scenes and creating custom scenes
-- Light and dark theme toggle
-- Floating global play or pause button
-- GitHub Pages deployment workflow
-- Service worker caching
-- PWA manifest and install icons
+Added:
+- Created the static ambient mixer app shell in `index.html`
+- Added the full audio engine, scene system, and UI wiring in `app.js`
+- Added the responsive visual design and theme styling in `styles.css`
+- Added bundled ambient categories for `rain`, `waves`, `jungle`, `wind`, `stream`, `crickets`, `brown noise`, and `campfire`
+- Added per-track play or pause, mute, and volume controls
+- Added master volume control
+- Added quick scenes for `Deep Focus`, `Ocean Calm`, and `Night`
+- Added Scene Studio for editing built-in scenes and creating custom scenes
+- Added a floating global play or pause control
+- Added a light and dark theme toggle
+- Added the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`
+- Added service worker support in `sw.js`
+- Added PWA metadata in `site.webmanifest`
+- Added install icons in `assets/icons/`
+- Added repo hygiene files `.gitignore` and `.nojekyll`
+- Added project documentation in `README.md`, `ASSET_SHORTLIST.md`, `CHANGELOG.md`, `LESSONS_LEARNED.md`, `METRICS_AND_LOGGING.md`, and `ONBOARDING.md`
 
-### Changed
-
-- Replaced generated fallback audio with real downloaded source assets
+Changed:
+- Replaced generated fallback audio with real sourced assets
 - Unified the mixer into a more minimal icon-first interface
 - Improved mobile layout for quick scenes and Scene Studio
-- Added live preview while editing scene mixes
+- Added live-preview behavior while editing scene mixes
 - Added reset and revert behavior for built-in and custom scenes
-- Optimized runtime audio from original MP3 sources into lighter AAC `.m4a` files
-- Compressed `brown noise` and `jungle` more aggressively for better mobile loading
 - Added background audio warmup to reduce first-click delay after refresh
+
+Removed:
 - Removed the unused original source-audio folder from the repo
 
-### Documentation
+### Add optimized ambient audio assets
 
-- Added sourcing shortlist and asset rationale
-- Added replication and deployment notes
-- Added onboarding, lessons learned, and metrics/logging guidance
-- Documented Git publishing issues, root causes, and the successful recovery flow
+Added:
+- Added optimized runtime audio files in `assets/audio/pixabay-optimized/`
+- Added optimized `.m4a` assets for `brown noise`, `campfire`, `crickets`, `jungle`, `rain`, `stream`, `waves`, and `wind`
 
-### Fixed
+Changed:
+- Switched the deployed runtime audio set to the optimized `.m4a` files
+- Compressed `brown noise` and `jungle` more aggressively for better mobile delivery
 
-- Clarified that the initial failure was not a broken local commit, but a remote publish problem
-- Switched the Git remote from SSH to HTTPS after GitHub SSH auth failed with `Permission denied (publickey)`
-- Avoided a large first-push transport failure by splitting the publish into:
-  - a smaller app/docs commit
-  - a second audio-assets commit
+### Document Git publishing issues and recovery flow
+
+Added:
+- Added publish troubleshooting guidance to `ONBOARDING.md`
+- Added a safer recommended publish flow to `README.md`
+- Added Git troubleshooting lessons to `LESSONS_LEARNED.md`
+
+Changed:
+- Expanded `CHANGELOG.md` to record the Git publish failure and recovery steps
+- Clarified in the docs that the failed operation was remote publishing, not local commit creation
+- Documented the switch from SSH to HTTPS for the GitHub remote
+- Documented the successful split-push strategy of app/docs first and audio assets second
